@@ -1,15 +1,33 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
-
-select 
-o.O_ORDERKEY,
-o.O_TOTALPRICE, 
-l.L_ORDERKEY, 
-l.L_DISCOUNT, 
-case when (l.L_DISCOUNT >= 0.06) then 'discounted' else 'not_discounted' end as Discount
-from {{ ref('orders_silver') }} as o
-left join {{ ref('lineitem_silver') }} as l
-on o.O_ORDERKEY = l.L_ORDERKEY
+WITH o AS (
+  SELECT
+    *
+  FROM {{ ref('orders_silver') }}
+), l AS (
+  SELECT
+    *
+  FROM {{ ref('lineitem_silver') }}
+), join_1 AS (
+  SELECT
+    *
+  FROM o
+  LEFT JOIN l
+    ON o.o_orderkey = l.l_orderkey
+), formula_1 AS (
+  SELECT
+    *,
+    CASE WHEN (
+      l_discount >= 0.07
+    ) THEN 'discounted' ELSE 'not_discounted' END AS discount
+  FROM join_1
+), discounts AS (
+  SELECT
+    o_orderkey,
+    o_totalprice,
+    l_orderkey,
+    l_discount,
+    discount
+  FROM formula_1
+)
+SELECT
+  *
+FROM discounts
