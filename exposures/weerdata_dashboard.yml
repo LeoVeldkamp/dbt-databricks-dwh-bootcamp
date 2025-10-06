@@ -12,6 +12,7 @@ exposures:
 
     depends_on:
       - source('weerdata', 'weerdata_gilze_rijen')
+      - ref('weerdata_leo')
 
     owner:
       name: Callum McData
