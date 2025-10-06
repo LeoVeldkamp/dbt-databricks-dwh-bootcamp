@@ -1,0 +1,89 @@
+models:
+- name: weerdata_leo
+  description: This model retrieves all weather data from the 'weerdata_gilze_rijen'
+    source, providing a comprehensive dataset for analysis of weather patterns and
+    conditions.
+  columns:
+  - name: yyyymmdd
+    description: The date of the weather observation in YYYYMMDD format.
+    tests:
+      - unique
+  - name: ddvec
+    description: The average wind direction in degrees.
+  - name: fhvec
+    description: The average wind speed in tenths of meters per second.
+  - name: fg
+    description: The daily mean wind speed in tenths of meters per second.
+  - name: fhx
+    description: The maximum hourly mean wind speed in tenths of meters per second.
+  - name: fhxh
+    description: The hour of the day with the maximum hourly mean wind speed.
+  - name: fhn
+    description: The minimum hourly mean wind speed in tenths of meters per second.
+  - name: fhnh
+    description: The hour of the day with the minimum hourly mean wind speed.
+  - name: fxx
+    description: The maximum wind gust in tenths of meters per second.
+  - name: fxxh
+    description: The hour of the day with the maximum wind gust.
+  - name: tg
+    description: The daily mean temperature in tenths of degrees Celsius.
+  - name: tn
+    description: The minimum temperature in tenths of degrees Celsius.
+  - name: tnh
+    description: The hour of the day with the minimum temperature.
+  - name: tx
+    description: The maximum temperature in tenths of degrees Celsius.
+  - name: txh
+    description: The hour of the day with the maximum temperature.
+  - name: t10n
+    description: The minimum temperature at 10 cm above ground in tenths of degrees
+      Celsius.
+  - name: t10nh
+    description: The hour of the day with the minimum temperature at 10 cm above ground.
+  - name: sq
+    description: The sunshine duration in tenths of an hour.
+  - name: sp
+    description: The percentage of maximum possible sunshine duration.
+  - name: q
+    description: The global radiation in J/cm^2.
+  - name: dr
+    description: The precipitation duration in tenths of an hour.
+  - name: rh
+    description: The daily precipitation amount in tenths of mm.
+  - name: rhx
+    description: The maximum hourly precipitation amount in tenths of mm.
+  - name: rhxh
+    description: The hour of the day with the maximum hourly precipitation amount.
+  - name: pg
+    description: The daily mean sea level pressure in tenths of hPa.
+  - name: px
+    description: The maximum hourly sea level pressure in tenths of hPa.
+  - name: pxh
+    description: The hour of the day with the maximum hourly sea level pressure.
+  - name: pn
+    description: The minimum hourly sea level pressure in tenths of hPa.
+  - name: pnh
+    description: The hour of the day with the minimum hourly sea level pressure.
+  - name: vvn
+    description: The minimum visibility in meters.
+  - name: vvnh
+    description: The hour of the day with the minimum visibility.
+  - name: vvx
+    description: The maximum visibility in meters.
+  - name: vvxh
+    description: The hour of the day with the maximum visibility.
+  - name: ng
+    description: The mean cloud cover in octas.
+  - name: ug
+    description: The daily mean relative humidity in percentage.
+  - name: ux
+    description: The maximum hourly relative humidity in percentage.
+  - name: uxh
+    description: The hour of the day with the maximum hourly relative humidity.
+  - name: un
+    description: The minimum hourly relative humidity in percentage.
+  - name: unh
+    description: The hour of the day with the minimum hourly relative humidity.
+  - name: ev24
+    description: The potential evaporation in mm.
