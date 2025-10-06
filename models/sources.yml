@@ -29,6 +29,11 @@ sources:
                         severity: warn
                   - not_null
   - name: weerdata
+    config:
+      freshness: # changed to config in v1.9
+        warn_after:
+          count: 1
+          period: minute  
     database: playground
     schema: dbt_ericmuhren
     tables:
