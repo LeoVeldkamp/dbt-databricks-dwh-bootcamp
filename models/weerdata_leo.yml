@@ -4,7 +4,7 @@ models:
     source, providing a comprehensive dataset for analysis of weather patterns and
     conditions.
   columns:
-  - name: yyyymmdd
+  - name: datum
     description: The date of the weather observation in YYYYMMDD format.
     tests:
       - unique
@@ -32,7 +32,7 @@ models:
     description: The minimum temperature in tenths of degrees Celsius.
   - name: tnh
     description: The hour of the day with the minimum temperature.
-  - name: tx
+  - name: temperatuur_tiende
     description: The maximum temperature in tenths of degrees Celsius.
   - name: txh
     description: The hour of the day with the maximum temperature.
@@ -49,7 +49,7 @@ models:
     description: The global radiation in J/cm^2.
   - name: dr
     description: The precipitation duration in tenths of an hour.
-  - name: rh
+  - name: regen_mm
     description: The daily precipitation amount in tenths of mm.
   - name: rhx
     description: The maximum hourly precipitation amount in tenths of mm.
