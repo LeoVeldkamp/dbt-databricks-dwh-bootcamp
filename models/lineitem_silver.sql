@@ -1,12 +1,25 @@
-select
-   L_ORDERKEY, 
-   L_LINENUMBER, 
-   L_QUANTITY, 
-   L_EXTENDEDPRICE, 
-   L_DISCOUNT, 
-   L_TAX, 
-   L_RETURNFLAG, 
-   L_LINESTATUS
-from {{ source('tpch', 'lineitem_bronze') }}
-where L_ORDERKEY is not null
-and L_SHIPDATE >= date '1990-01-01'
+WITH lineitem_bronze AS (
+  SELECT
+    *
+  FROM {{ source('tpch', 'lineitem_bronze') }}
+), filter_1 AS (
+  SELECT
+    *
+  FROM lineitem_bronze
+  WHERE
+    NOT l_orderkey IS NULL AND l_shipdate >= CAST('1990-02-01' AS DATE)
+), lineitem_silver AS (
+  SELECT
+    l_orderkey,
+    l_linenumber,
+    l_quantity,
+    l_extendedprice,
+    l_discount,
+    l_tax,
+    l_returnflag,
+    l_linestatus
+  FROM filter_1
+)
+SELECT
+  *
+FROM lineitem_silver
