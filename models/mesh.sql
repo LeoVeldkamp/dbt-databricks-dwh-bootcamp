@@ -1,1 +1,1 @@
-select * from {{ ref('DBT_Eric_GitHub', 'weerdata_leo') }}
+select * from {{ ref('DBT_Eric_GitHub', 'weerdata') }}
