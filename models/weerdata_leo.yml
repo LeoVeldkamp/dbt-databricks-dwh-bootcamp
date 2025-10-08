@@ -1,5 +1,7 @@
 models:
 - name: weerdata_leo
+  config:
+    access: public
   description: This model retrieves all weather data from the 'weerdata_gilze_rijen'
     source, providing a comprehensive dataset for analysis of weather patterns and
     conditions.

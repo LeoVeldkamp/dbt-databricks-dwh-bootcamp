@@ -8,8 +8,7 @@ WITH weerdata_gilze_rijen AS (
     tx AS temperatuur_tiende,
     rh AS regen_mm,
     sq AS sunshine,
-    pg AS pressure_hpa,
-    #STN AS hekje_stn
+    pg AS pressure_hpa
   FROM weerdata_gilze_rijen
 ), weerdata_leo AS (
   SELECT
