@@ -17,8 +17,10 @@ WITH weerdata_leo AS (
   FROM formula_1
 ), rename_3 AS (
   SELECT
-    *
-    RENAME (datum AS a_datum)
+    datum as a_datum,
+    temperatuur_hele_graden,
+    regen_mm,
+    sunshine_per_hpa
   FROM rename_1
 ), formula_2 AS (
   SELECT
